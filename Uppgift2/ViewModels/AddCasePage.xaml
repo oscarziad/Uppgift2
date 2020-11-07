@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="Uppgift2.ViewModels.AddCasePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Uppgift2.ViewModels"
+    xmlns:models="using:Uppgift2.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Resources>
+            <models:Category x:Key="category"/>
+        </Grid.Resources>
+        <TextBox HorizontalAlignment="Left" Margin="50,30,0,0" Text="Case Management" VerticalAlignment="Top" Width="333" FontSize="30" FontWeight="Bold" BorderBrush="Transparent"/>
+        <TextBox HorizontalAlignment="Left" Margin="50,110,0,0" Text="Customer information"  VerticalAlignment="Top" Width="333" FontSize="20" FontWeight="Bold" BorderBrush="Transparent" />
+        <TextBox x:Name="tbxSSNo"      HorizontalAlignment="Left" Margin="50,160,0,0" PlaceholderForeground="Gray" PlaceholderText="Enter SSNo YYMMDDXXXX" VerticalAlignment="Top" Width="333"/>
+        <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Margin="50,220,0,0" PlaceholderForeground="Gray" PlaceholderText="Enter Firstname" VerticalAlignment="Top" Width="333"/>
+        <TextBox x:Name="tbxLastName"  HorizontalAlignment="Left" Margin="400,220,0,0" PlaceholderForeground="Gray" PlaceholderText="Enter Lastname" VerticalAlignment="Top" Width="298"/>
+        <TextBox x:Name="tbxPhoneNumber" HorizontalAlignment="Left" Margin="50,280,0,0" PlaceholderForeground="Gray" PlaceholderText="Enter phonenumber" VerticalAlignment="Top" Width="333"/>
+        <TextBox x:Name="tbxEmailAdress" HorizontalAlignment="Left" Margin="400,280,0,0" PlaceholderForeground="Gray" PlaceholderText="Enter emailadress" VerticalAlignment="Top" Width="298"/>
+        <TextBox HorizontalAlignment="Left" Margin="50,460,0,0" Text="Case information" VerticalAlignment="Top" Width="333" FontSize="20" FontWeight="Bold" BorderBrush="Transparent"/>
+        <TextBox x:Name="tbxTitle" HorizontalAlignment="Left" Margin="50,510,0,0" PlaceholderForeground="Gray" PlaceholderText="Enter Title" VerticalAlignment="Top" Width="333"/>
+        <TextBox x:Name="tbxDescription" HorizontalAlignment="Left" Margin="50,630,0,0" PlaceholderForeground="Gray" PlaceholderText="Enter Description" TextWrapping="Wrap" VerticalAlignment="Top" Width="668" Height="105"/>
+        <ComboBox x:Name="cmbCategory" ItemsSource="{StaticResource category}" Margin="50,570,0,0" Width="298" RenderTransformOrigin="0.517,2.703" PlaceholderForeground="Gray" PlaceholderText="Choose Category"/>
+        <Button x:Name="btnSave" Click="btnSave_Click" Content="Save" Margin="50,750,0,0" VerticalAlignment="Top" Width="126" Height="50" FontSize="20" FontWeight="Bold"/>
+    </Grid>
+</Page>

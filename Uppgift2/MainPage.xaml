@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Uppgift2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Uppgift2"
+    
+    xmlns:models="using:Uppgift2.Models"
+    xmlns:views="using:Uppgift2.ViewModels"
+    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+  
+    
+    <Grid>
+        <NavigationView x:Name="MenuView" Loaded="MenuView_Loaded" SelectionChanged="MenuView_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Add" Content="Add New Case" Tag="AddCasePage"/>
+                <NavigationViewItem Icon="List" Content="All Open Cases" Tag="OpenCasesPage"/>
+                <NavigationViewItem Icon="List" Content="All Closed Cases" Tag="ClosedCasesPage"/>
+            </NavigationView.MenuItems>
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame"/>
+            </ScrollViewer>
+        </NavigationView>
+
+    </Grid>
+</Page>

@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="Uppgift2.ViewModels.OpenCasesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Uppgift2.ViewModels"
+    xmlns:models="using:Uppgift2.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="TicketCollection" Source="{ x:Bind Tickets}"/>
+    </Page.Resources>
+
+
+    <Grid>
+        
+        <StackPanel>
+            <TextBox Text="All Open tickets" FontSize="30" FontWeight="Bold" />
+            <ListView x:Name="lvTicketListview" ItemsSource="{Binding Source={StaticResource TicketCollection}}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Ticket">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                            <TextBlock Text="{x:Bind TicketId}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind customer.FirstName}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind customer.LastName}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind Title}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind Status}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel DataContext="{Binding Source={StaticResource TicketCollection}}" Margin="0,30,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Ticket Id: "/>
+                    <TextBlock x:Name="TicketId" Text="{Binding TicketId}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Created: "/>
+                    <TextBlock Text="{Binding Created}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Status: "/>
+                    <TextBlock x:Name="Status" Text="{Binding Status}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Titel: "/>
+                    <TextBlock Text="{Binding Title}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Category: "/>
+                    <TextBlock Text="{Binding Category}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Description: "/>
+                    <TextBlock Text="{Binding Description}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Button Content="Active" Margin="50,10,10,0" FontSize="20" VerticalAlignment="Top" Click="Button_Click_1"/>
+                    <Button Content="Closed" Margin="10,10,10,0" FontSize="20" VerticalAlignment="Top" Click="Button_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

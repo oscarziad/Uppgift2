@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="Uppgift2.ViewModels.ClosedCasesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Uppgift2.ViewModels"
+    xmlns:models="using:Uppgift2.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="TicketCollection" Source="{ x:Bind Tickets}"/>
+    </Page.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBox Grid.Row="0" Text="All Closed Cases" FontSize="30" FontWeight="Bold"/>
+
+        <StackPanel Grid.Row="1">
+            <ListView x:Name="lvTicketListview" ItemsSource="{Binding Source={StaticResource TicketCollection}}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Ticket">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind TicketId}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind customer.DisplayName}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind Title}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind Description}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                                <TextBlock Text="{x:Bind Status}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackPanel>
+
+
+    </Grid>
+
+</Page>
