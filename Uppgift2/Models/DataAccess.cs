@@ -15,7 +15,7 @@ namespace Uppgift2
     {
         public static Settings settings = new Settings();
 
-        private static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\BOOTCAMP\Documents\uppgift2.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string connectionString = @"Data Source=DESKTOP-O844D6M\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";
 
         public static async void ReadSettingsAsync()
         {
